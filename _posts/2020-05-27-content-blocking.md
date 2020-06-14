@@ -72,9 +72,9 @@ information of tracking technology that was blocked or
 allowed by ghostery has evolved as well.
 
 ### Privacy Badger
-[Privacy Badger] by the [Electronic Frontier Foundation].
-It wasn't as polished or beautiful like Ghostery, but it
-worked. I had heard of it before, but I had also heard that
+? [Privacy Badger] by the [Electronic Frontier Foundation].
+It isn't as polished or beautiful like Ghostery, but it
+works. I had heard of it before, but I had also heard that
 it was known to break a lot of websites. Then later on, I
 read that the extension had gotten learning skills and 
 "_automatically learns to block invisible trackers_". I
