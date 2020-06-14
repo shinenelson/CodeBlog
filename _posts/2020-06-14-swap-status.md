@@ -14,14 +14,14 @@ pending-actions:
 ---
 
 I don't think there's anyone who uses a modern GNU/Linux
-distribution who gets their physical memory full enough to
-swap out. No, I'm not talking about under-spec'd machines.
-My machine has 12 GB ( technically 11.6GB ) of RAM - one 4GB
-stick and another 8GB; yes, the second stick was an upgrade,
-hence the uneven proportion. And part of the reason for the
-upgrade was this - my machine was swapping out too often.
-And even now, after the upgrade, I can still manage to fill
-even the 12GB up and swap my memory out.
+distribution who can get their physical memory full enough
+to swap out to disk. No, I'm not talking about under-spec'd
+machines. My machine has 12 GB ( technically 11.6GB ) of RAM
+- one 4GB stick and another 8GB; yes, the second stick was
+an upgrade, hence the uneven proportion. And part of the
+reason for the upgrade was this - my machine was swapping
+out too often. And even now, after the upgrade, I can still
+manage to fill even the 12GB up and swap my memory out.
 
 Oftentimes, I don't even realize when my swap of 6.6GB runs
 out too. I realize towards the end when my machine starts to
@@ -152,7 +152,7 @@ and then I nest-aliased `ftswap` more ( alias-ception `\o/` ) :
     alias ftswapsus='ftswap && systemctl suspend'
     ```
   * _swap in_ before hibernating system to disk
-
+    <br>
     `systemctl hibernate` just wouldn't hibernate to disk
     if swap was already in use.
     ```sh
@@ -203,17 +203,17 @@ alias ftswap='swap? && swap'
 All the child aliases of `ftswap` still function as they used
 to previously. The advantage being that I don't have to do
 any more visual-based decision-making for manually swapping
-in. `ftswap` has gotten smart enough to know if it is safe
+in. `ftswap` has gotten smart enough to _know_ if it is safe
 to _swap in_ or not and then triggers a manual swap in if it
 is safe to.
 
-[sandbox]:
+<!-- [sandbox]: -->
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
 [`htop`]: https://hisham.hm/htop/
 [`glances`]: https://nicolargo.github.io/glances/
 [`bashtop`]: https://github.com/aristocratos/bashtop
-[compiling]:
+<!-- [compiling]: -->
 
 #### footnotes
 [^1]: [How to clear swap memory in Linux - Enable Sysadmin](https://www.redhat.com/sysadmin/clear-swap-linux "How to clear swap memory in Linux - Enable Sysadmin")
