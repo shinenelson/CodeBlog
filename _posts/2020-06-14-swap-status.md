@@ -14,8 +14,8 @@ pending-actions:
 ---
 
 I don't think there's anyone who uses a modern GNU/Linux
-distribution and  gets their physical memory full enough
-to swap out. No, I'm not talking aobut under-spec'd machines
+distribution who gets their physical memory full enough to
+swap out. No, I'm not talking about under-spec'd machines.
 My machine has 12 GB ( technically 11.6GB ) of RAM - one 4GB
 stick and another 8GB; yes, the second stick was an upgrade,
 hence the uneven proportion. And part of the reason for the
@@ -62,7 +62,7 @@ case.
 I have different methods to clean up my physical memory and
 make space for the system to run smoothly ( other than just
 closing application windows ). However, the drawback of swap
-memory is that while there is some logic in the Linux kernel
+memory is that, while there is some logic in the Linux kernel
 to eventually _[swap in]_ those pages from the disk back to
 RAM, in my experience, it has never written whatever it has,
 back to physical memory; even if the physical memory has
@@ -77,7 +77,7 @@ swap is just selfish here.
 
 Actually, it is the task of the physical memory ( RAM ) to
 summon swapped pages back when they're required by their
-corresponding applications. Thinking about it, maybe, there
+corresponding applications. Thinking about it, maybe there
 isn't a single _swap in_ mechanism. Maybe, like _[eventual
 consistency]_, it just means that in time, when the RAM
 keeps needing more swapped pages, it'll just summon them
@@ -113,45 +113,46 @@ commands into one :
 alias swap='sudo swapoff --all && sudo swapon --all'
 ```
 
-And then I `time swap` to run after pretty-printing the
+And then `time swap` to run after pretty-printing the
 amount of `free` memory available.
 * print the output of `free` and then `swap` ( so that if
 if there isn't enough memory, I can kill it just in time
-before there's a memory deadlock and my machine hangs again.
+before there's a memory deadlock and my machine hangs again )
 ```sh
 alias ftswap="free --human | awk 'NR==3 { print \$3 }' && time swap"
 ```
-and then I nest-aliased `ftswap` more ( aliasception \o/ ) :
+and then I nest-aliased `ftswap` more ( alias-ception `\o/` ) :
   * _swap in_ and exit
     ```sh
     alias ftswape='ftswap && exit'
     ```
     this was my go-to alias when I needed to clean up a
-    large amount of swap ( > 3GB ) and could block my other
-    things because it was running. So, I used to just open
-    up another terminal, run the alias and just forget about
-    it. It would run its course and `exit`.
+    large amount of swap ( > 3GB ) which could block my other
+    normal activities because it was running. So I would just
+    open up another terminal, run the alias and just forget
+    about it. It would run its course and `exit`.
 
-    before I ran this though, I'd run the first part of the
-    alias and confirm that it was safe to just leave it
+    before I ran this though, I'd run the first part of
+    `ftswap` and confirm that it was safe to just leave it
     running in the background - meaning, I would visually
     check and confirm that I'd have at least 512MB of RAM
-    even after the whole swap in completed. That way I could
-    continue working and not be bothered about the swap in
-    activity happening in the background.
+    even after the whole _swap in_ completed. That way I
+    could continue working and not be bothered about the
+    _swap in_ activity happening in the background.
 
     most times it was `ftswape`, but I've used `ftswap`
     directly too when the amount of available memory was
     limited and needed close monitoring. At those times, I'd
     have some kind of memory monitor open - `watch free
-    --human`, [`htop`], [`glances`] or [`bashtop`]. ( yes,
-    I'm crazy enough to have all of those tools on my system.
+    --human`, [`htop`], [`glances`] or [`bashtop`] ( yes,
+    I'm crazy enough to have all of those tools on my system;
     but hey, it was fun [compiling] them ).
   * _swap in_ before suspending system to disk
     ```sh
     alias ftswapsus='ftswap && systemctl suspend'
     ```
   * _swap in_ before hibernating system to disk
+
     `systemctl hibernate` just wouldn't hibernate to disk
     if swap was already in use.
     ```sh
@@ -199,18 +200,20 @@ the existing `ftswap` with the new alias :
 ```sh
 alias ftswap='swap? && swap'
 ```
-So all the child aliases of `ftswap` still function as they
-used to previously. The advantage being that I don't have to
-do any more visual-based decision-making for manually
-swapping in. `ftswap` has gotten smart enough to know if it
-is safe to _swap in_ or not and then triggers a manual swap
-in if it is safe to.
+All the child aliases of `ftswap` still function as they used
+to previously. The advantage being that I don't have to do
+any more visual-based decision-making for manually swapping
+in. `ftswap` has gotten smart enough to know if it is safe
+to _swap in_ or not and then triggers a manual swap in if it
+is safe to.
 
+[sandbox]:
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
 [`htop`]: https://hisham.hm/htop/
 [`glances`]: https://nicolargo.github.io/glances/
 [`bashtop`]: https://github.com/aristocratos/bashtop
+[compiling]:
 
 #### footnotes
 [^1]: [How to clear swap memory in Linux - Enable Sysadmin](https://www.redhat.com/sysadmin/clear-swap-linux "How to clear swap memory in Linux - Enable Sysadmin")
