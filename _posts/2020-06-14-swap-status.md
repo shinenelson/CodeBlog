@@ -17,7 +17,7 @@ I don't think there's anyone who uses a modern GNU/Linux
 distribution who can get their physical memory full enough
 to swap out to disk. No, I'm not talking about under-spec'd
 machines. My machine has 12 GB ( technically 11.6GB ) of RAM
-- one 4GB stick and another 8GB; yes, the second stick was
+\- one 4GB stick and another 8GB; yes, the second stick was
 an upgrade, hence the uneven proportion. And part of the
 reason for the upgrade was this - my machine was swapping
 out too often. And even now, after the upgrade, I can still
