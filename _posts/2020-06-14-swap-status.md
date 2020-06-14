@@ -121,6 +121,25 @@ and then I nest-aliased `ftswap` more :
     ```sh
     alias ftswape='ftswap && exit'
     ```
+    this was my go-to alias when I needed to clean up a
+    large amount of swap ( > 3GB ) and could block my other
+    things because it was running. So, I used to just open
+    up another terminal, run the alias and just forget about
+    it. It would run its course and `exit`.
+
+    before I ran this though, I'd run the first part of the
+    alias and confirm that it was safe to just leave it
+    running in the background - meaning, I would visually
+    check and confirm that I'd have at least 512MB of RAM
+    even after the whole swap in completed. That way I could
+    continue working and not be bothered about the swap in
+    activity happening in the background.
+
+    most times it was `ftswape`, but I used `ftswap` too
+    when the amount of available memory was limited and
+    needed close monitoring. At those times, I'd have some
+    kind of memory monitor open - `watch free --human`,
+    `[htop]`, `[glances]` or `[bashtop]`.
   * _swap out_ before suspending
     ```sh
     alias ftswapsus='ftswap && systemctl suspend'
@@ -180,6 +199,9 @@ it is safe to.
 <!-- [sandbox]: {% post_url data-islands %} -->
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
+[htop]: https://hisham.hm/htop/
+[glances]: https://nicolargo.github.io/glances/
+[bashtop]: https://github.com/aristocratos/bashtop
 
 #### footnotes
 [^1]: [How to clear swap memory in Linux - Enable Sysadmin](https://www.redhat.com/sysadmin/clear-swap-linux "How to clear swap memory in Linux - Enable Sysadmin")
