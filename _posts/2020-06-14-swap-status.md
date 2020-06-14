@@ -139,7 +139,7 @@ and then I nest-aliased `ftswap` more :
     when the amount of available memory was limited and
     needed close monitoring. At those times, I'd have some
     kind of memory monitor open - `watch free --human`,
-    [`htop`], [`glances`] or [`bashtop`].
+    `[htop]`, `[glances]` or `[bashtop]`.
   * _swap out_ before suspending
     ```sh
     alias ftswapsus='ftswap && systemctl suspend'
