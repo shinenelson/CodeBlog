@@ -196,7 +196,6 @@ in. `ftswap` has gotten smart enough to know if it is safe
 to _swap in_ or not and then triggers a manual swap in if
 it is safe to.
 
-<!-- [sandbox]: {% post_url data-islands %} -->
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
 <!-- [htop]: https://hisham.hm/htop/ -->
