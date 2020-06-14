@@ -7,17 +7,21 @@ tags:
     script
     physical-memory-vs-swap-memory
     private-incognito-windows
+pending-actions:
+  - link other post_url
+    - [sandbox] : data-islands
+    - [compiling] : software compiling craze
 ---
 
-I don't think there's anyone who use a modern GNU/Linux
-distribution who gets their physical memory full enough
-to swap out. And no, I'm not talking aobut under-spec'd
-machines. My machine has 12 GB ( technically 11.6GB ) -
-one 4GB RAM stick and another 8GB; yes, the second stick
-was an upgrade, hence the uneven proportion. And part of
-the reason for the upgrade was this - my machine was
-swapping out too often. And I can still manage to fill even
-the 12GB up and swap my memory out.
+I don't think there's anyone who uses a modern GNU/Linux
+distribution and  gets their physical memory full enough
+to swap out. No, I'm not talking aobut under-spec'd machines
+My machine has 12 GB ( technically 11.6GB ) of RAM - one 4GB
+stick and another 8GB; yes, the second stick was an upgrade,
+hence the uneven proportion. And part of the reason for the
+upgrade was this - my machine was swapping out too often.
+And even now, after the upgrade, I can still manage to fill
+even the 12GB up and swap my memory out.
 
 Oftentimes, I don't even realize when my swap of 6.6GB runs
 out too. I realize towards the end when my machine starts to
@@ -49,8 +53,10 @@ if I have to [sandbox] Google services.
 
 ## Why not just close those tabs / windows?
 Well no, those windows are my main windows, so I can't just
-close them with a click ( of course, I can sometimes and I
-do too ). That'd be like asking me to close my main window.
+close them with a click. That'd be like asking me to close
+my main window. Of course, I can close some of the windows
+sometimes ( and I do too ), but most times, that's not the
+case.
 
 ## So, now what?
 I have different methods to clean up my physical memory and
@@ -65,19 +71,17 @@ _swap in_ to get triggered. I've only tried it with almost
 the same amount of RAM available. Maybe if it had, say,
 double the amount the amount of RAM available, then it might
 _swap in_. Well, I can't free up double the RAM so that the
-swap can do its thing, can I? In that case, I wouldn't the
-swap anymore, would I? I'm just going to _judge_ that swap
-is just selfish here.
+swap can do its thing, can I? In that case, I wouldn't need
+the swap anymore, would I? I'm just going to _judge_ that
+swap is just selfish here.
 
 Actually, it is the task of the physical memory ( RAM ) to
 summon swapped pages back when they're required by their
-corresponding applications.
-
-Thinking about it, maybe, there isn't a single _swap in_
-mechanism. Maybe, like _[eventual consistency]_, it just
-means that in time, when the RAM keeps needing more swapped
-pages, it'll just summon them individually and eventually
-free up all of the swap.
+corresponding applications. Thinking about it, maybe, there
+isn't a single _swap in_ mechanism. Maybe, like _[eventual
+consistency]_, it just means that in time, when the RAM
+keeps needing more swapped pages, it'll just summon them
+individually and eventually free up all of the swap.
 
 Well, often times, some of the memory might already be
 deallocated by the operating system ( for example, when
@@ -86,10 +90,10 @@ about this and doesn't even have to care about it because it
 is supposed to be fetched back by the physical memory _when_
 it is required. So it is by design that the swap doesn't
 write back to the physical memory unless it is specifically
-summoned. So then what happens to those swap pages that were
+summoned. So then, what happens to those swap pages that were
 deallocated by the operating system? They just stay there
 forever like zombies. And who likes zombies, especially
-zombie processes and memory?
+zombie processes and memory? Nobody.
 
 Well, if the swap won't write back to the RAM on it's own,
 then what do we do? We force it to write back.
@@ -103,21 +107,22 @@ then what do we do? We force it to write back.
 
 ## Okay, so?
 I can't recall when I started doing this or how long I've
-been doing it. For quite a while now I've aliased those 2
-commands :
+been doing it. For quite a while now, I've aliased those 2
+commands into one :
 ```sh
 alias swap='sudo swapoff --all && sudo swapon --all'
 ```
 
-And then I've used `swap` in different scenarios :
+And then I `time swap` to run after pretty-printing the
+amount of `free` memory available.
 * print the output of `free` and then `swap` ( so that if
 if there isn't enough memory, I can kill it just in time
 before there's a memory deadlock and my machine hangs again.
 ```sh
 alias ftswap="free --human | awk 'NR==3 { print \$3 }' && time swap"
 ```
-and then I nest-aliased `ftswap` more :
-  * _swap out_ and exit
+and then I nest-aliased `ftswap` more ( aliasception \o/ ) :
+  * _swap in_ and exit
     ```sh
     alias ftswape='ftswap && exit'
     ```
@@ -135,16 +140,20 @@ and then I nest-aliased `ftswap` more :
     continue working and not be bothered about the swap in
     activity happening in the background.
 
-    most times it was `ftswape`, but I used `ftswap` too
-    when the amount of available memory was limited and
-    needed close monitoring. At those times, I'd have some
-    kind of memory monitor open - `watch free --human`,
-    [`htop`], [`glances`] or [`bashtop`].
-  * _swap out_ before suspending
+    most times it was `ftswape`, but I've used `ftswap`
+    directly too when the amount of available memory was
+    limited and needed close monitoring. At those times, I'd
+    have some kind of memory monitor open - `watch free
+    --human`, [`htop`], [`glances`] or [`bashtop`]. ( yes,
+    I'm crazy enough to have all of those tools on my system.
+    but hey, it was fun [compiling] them ).
+  * _swap in_ before suspending system to disk
     ```sh
     alias ftswapsus='ftswap && systemctl suspend'
     ```
-  * _swap out_ before hibernating
+  * _swap in_ before hibernating system to disk
+    `systemctl hibernate` just wouldn't hibernate to disk
+    if swap was already in use.
     ```sh
     alias ftswapsch='ftswap && systemctl hibernate'
     ```
@@ -156,7 +165,7 @@ not shell functions, but an `awk` script. It takes the output
 of `free --mebi`, does some basic calculation ( I could call
 it _smart_; but it really is just subtracting 2 values - free
 RAM and used swap ) and exits safely ( exit code `0` ) if
-it is safe to _swap out_; otherwise exits with `255`.
+it is safe to _swap out_; otherwise exits with exit code `255`.
 
 <script src="https://gist.github.com/shinenelson/a8a5550eaaefd66658a6d1f10ffbe4dc.js?file=swap-status.awk"></script>
 
@@ -173,15 +182,14 @@ inline `awk` parsing that was in the middle of `ftswap` that
 has been replaced with the script ( obviously, because it is
 an `awk` script, it can only replace the `awk` ).
 
-However, previously, the `awk` parsing was not decisive. It
-was just pretty-printing what I needed to see in order to
-make a visual-based decision whether to `SIGINT swap` when
-it had almost filled up the available physical memory. Now,
-in its _evolutionary progression_, I've handed over the
-decision-making capability to the `awk` script so that it
-now exits with a decisive exit code. Now, I can just run
-`swap?` to know if my machine can _swap in_. And then `&&`
-it to `swap`.
+Also, previously, the `awk` parsing was not decisive. It was
+just pretty-printing what I needed to see in order to make a
+visual-based decision whether to `SIGINT swap` when it had
+almost filled up the available physical memory. Now, in its
+_evolutionary progression_, I've handed over the decision-
+making capability to the `awk` script so that it now exits
+with a decisive exit code. Now, I can just run `swap?` to
+know if my machine can _swap in_. And then `&&` it to `swap`.
 ```sh
 swap? && swap
 ```
@@ -191,10 +199,12 @@ the existing `ftswap` with the new alias :
 ```sh
 alias ftswap='swap? && swap'
 ```
-No more visual-based decision-making for manually swapping
-in. `ftswap` has gotten smart enough to know if it is safe
-to _swap in_ or not and then triggers a manual swap in if
-it is safe to.
+So all the child aliases of `ftswap` still function as they
+used to previously. The advantage being that I don't have to
+do any more visual-based decision-making for manually
+swapping in. `ftswap` has gotten smart enough to know if it
+is safe to _swap in_ or not and then triggers a manual swap
+in if it is safe to.
 
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
