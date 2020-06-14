@@ -10,7 +10,7 @@ tags:
 pending-actions:
   - link other post_url
     - [sandbox] : data-islands
-    - [compiling] : software compiling craze
+      [compiling] : software compiling craze
 ---
 
 I don't think there's anyone who uses a modern GNU/Linux
