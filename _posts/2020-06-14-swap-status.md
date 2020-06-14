@@ -139,7 +139,7 @@ and then I nest-aliased `ftswap` more :
     when the amount of available memory was limited and
     needed close monitoring. At those times, I'd have some
     kind of memory monitor open - `watch free --human`,
-    [`htop`](https://hisham.hm/htop/), `[glances]` or `[bashtop]`.
+    `[htop](https://hisham.hm/htop/)`, `[glances]` or `[bashtop]`.
   * _swap out_ before suspending
     ```sh
     alias ftswapsus='ftswap && systemctl suspend'
@@ -199,7 +199,7 @@ it is safe to.
 <!-- [sandbox]: {% post_url data-islands %} -->
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
-[htop]: https://hisham.hm/htop/
+<!-- [htop]: https://hisham.hm/htop/ -->
 [glances]: https://nicolargo.github.io/glances/
 [bashtop]: https://github.com/aristocratos/bashtop
 
