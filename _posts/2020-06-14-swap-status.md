@@ -8,7 +8,7 @@ tags:
     physical-memory-vs-swap-memory
     private-incognito-windows
 pending-actions:
-  - link other post_url
+  - link other post_url:
     - [sandbox] : data-islands
       [compiling] : software compiling craze
 ---
