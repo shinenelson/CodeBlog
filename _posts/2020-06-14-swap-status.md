@@ -198,9 +198,9 @@ it is safe to.
 
 [swap in]: https://askubuntu.com/a/1359
 [eventual consistency]: https://en.wikipedia.org/wiki/Eventual_consistency
-[htop]: https://hisham.hm/htop/
-[glances]: https://nicolargo.github.io/glances/
-[bashtop]: https://github.com/aristocratos/bashtop
+[`htop`]: https://hisham.hm/htop/
+[`glances`]: https://nicolargo.github.io/glances/
+[`bashtop`]: https://github.com/aristocratos/bashtop
 
 #### footnotes
 [^1]: [How to clear swap memory in Linux - Enable Sysadmin](https://www.redhat.com/sysadmin/clear-swap-linux "How to clear swap memory in Linux - Enable Sysadmin")
