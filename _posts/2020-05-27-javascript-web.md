@@ -67,7 +67,7 @@ that make them righteous? Definitely not.
 Now, the bigger question to be asked is, how did all of this
 actually unfurl? What enabled these websites to do such
 things? It turns out that they only just exploited something
-that [JavaScript allowed](http://blog.andlabs.org/2010/12/port-scanning-with-html5-and-js-recon.html) them to do. It's a feature:tm:.
+that [JavaScript allowed](http://blog.andlabs.org/2010/12/port-scanning-with-html5-and-js-recon.html) them to do. It's a feature :tm: .
 Thanks for making the web more toxic, JavaScript. That's one
 more reason why one should have JavaScript disabled while
 browsing the internet.
