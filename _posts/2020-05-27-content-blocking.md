@@ -44,10 +44,10 @@ of that generated data. Who knew what they actually did with
 all of that data?
 
 ### Disconnect
-Then around the same time came [disconnect.me](https://disconnect.me) that took it
+Then around the same time came [disconnect.me] that took it
 one step further. They allowed you to block these so-called
 trackers. Initially, they even had a "private" search add-on,
-that would trigger a search on [duckduckgo](https://duckduckgo.com). They do a decent
+that would trigger a search on [duckduckgo]. They do a decent
 job of displaying information of trackers and blocking them.
 [
 until recently. Recently, because of the overload of privacy
@@ -60,10 +60,10 @@ EDIT : it does not work only in Private Browsing sessions.
 ]
 Though the extension interface hasn't changed since they
 first came out so the interface does look a bit outdated.
-Maybe all the magic has been happening behind the scenes:tm:
+Maybe all the magic has been happening behind the scenes™️
 
 ### Ghostery
-I've been using [Ghostery](https://www.ghostery.com) for the longest time now. And 
+I've been using [Ghostery] for the longest time now. And
 that's partly because of its intuitive, customizable block
 list. Of recent, the web extension sports a very neat
 interface as well. The small purple alert at the bottom right
@@ -72,7 +72,7 @@ information of tracking technology that was blocked or
 allowed by ghostery has evolved as well.
 
 ### Privacy Badger
-[Privacy Badger](https://privacybadger.org) by the [Electronic Frontier Foundation](https://eff.org).
+[Privacy Badger] by the [Electronic Frontier Foundation].
 It wasn't as polished or beautiful like Ghostery, but it
 worked. I had heard of it before, but I had also heard that
 it was known to break a lot of websites. Then later on, I
@@ -95,15 +95,15 @@ I use a couple web extensions that supplement my privacy
 experience during browsing the web.
 
 #### Terms of Service; Didn't Read ( ToS;DR )
-[ToS;DR](https://tosdr.org) is a service that, like the name suggests, analyzes 
+[ToS;DR] is a service that, like the name suggests, analyzes 
 the Terms of Service on various websites and assigns a
-"**Privacy Grade** to the website. This grade is shown in the
-icon of the extension in the browser. It also sends you a
-notification when you visit websites with major issues in
+"**Privacy Grade** to the website. This grade is shown in
+the icon of the extension in the browser. It also sends you
+a notification when you visit websites with major issues in
 their terms of service.
 
 #### DuckDuckGo Privacy Essentials
-I heard about [DuckDuckGo Privacy Essentials](https://duckduckgo.com/app) pretty late.
+I heard about [DuckDuckGo Privacy Essentials] pretty late.
 Nevertheless, I installed the add-on and started using it.
 The interfaces looks very similar to Disconnect, but it is
 Disconnect on steroids. It has more information, and has an
@@ -154,3 +154,11 @@ what I mean when I say intrusive ads. And as long as they
 are not following me around wherever I go on the internet,
 I wouldn't mind them. What I wanted was to stop the tracking.
 Ad-blocking just came as a side-effect.
+
+[disconnect.me]: https://disconnect.me
+[duckduckgo]: https://duckduckgo.com
+[Ghostery]: https://www.ghostery.com
+[Privacy Badger]: https://privacybadger.org
+[Electronic Frontier Foundation]: https://eff.org
+[ToS;DR]: https://tosdr.org
+[DuckDuckGo Privacy Essentials]: https://duckduckgo.com/app
